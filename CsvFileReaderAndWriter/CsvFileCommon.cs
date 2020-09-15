@@ -21,8 +21,8 @@ namespace CsvFileReaderAndWriter
         /// </summary>
         public char Delimiter
         {
-            get { return SpecialChars[DelimiterIndex]; }
-            set { SpecialChars[DelimiterIndex] = value; }
+            get => SpecialChars[DelimiterIndex];
+            set => SpecialChars[DelimiterIndex] = value;
         }
 
         /// <summary>
@@ -30,8 +30,8 @@ namespace CsvFileReaderAndWriter
         /// </summary>
         public char Quote
         {
-            get { return SpecialChars[QuoteIndex]; }
-            set { SpecialChars[QuoteIndex] = value; }
+            get => SpecialChars[QuoteIndex];
+            set => SpecialChars[QuoteIndex] = value;
         }
     }
 }
