@@ -2,7 +2,7 @@ name: Build and Run
  
 on: 
     push:
-        branches: [master]
+        branches: [csv-setup]
  
 jobs:
   build:
