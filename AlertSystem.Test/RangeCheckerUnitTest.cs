@@ -1,25 +1,24 @@
-using System;
 using Xunit;
 
 namespace AlertSystem.Test
 {
     public class RangeCheckerUnitTest
     {
-        private readonly MapRangeToParameterStatus[] temperatureRangeMap;
+        private readonly MapRangeToParameterStatus[] _temperatureRangeMap;
         public RangeCheckerUnitTest()
         {
-            temperatureRangeMap = new MapRangeToParameterStatus[4];
+            _temperatureRangeMap = new MapRangeToParameterStatus[4];
 
-            temperatureRangeMap[0] =
+            _temperatureRangeMap[0] =
                 new MapRangeToParameterStatus(int.MinValue, -1, ParameterStatus.VeryLow, "is very low!");
 
-            temperatureRangeMap[1] =
+            _temperatureRangeMap[1] =
                 new MapRangeToParameterStatus(0, 3, ParameterStatus.Low, "is low!");
 
-            temperatureRangeMap[2] =
+            _temperatureRangeMap[2] =
                 new MapRangeToParameterStatus(38, 40, ParameterStatus.High, "is high!");
 
-            temperatureRangeMap[3] =
+            _temperatureRangeMap[3] =
                 new MapRangeToParameterStatus(41, int.MaxValue, ParameterStatus.VeryHigh, "is very high!");
 
         }
@@ -27,7 +26,7 @@ namespace AlertSystem.Test
         [Fact]
         public void WhenTemperatureIsNormalThenCalculateRangeResult()
         {
-            RangeChecker checker = new RangeChecker("Temperature", temperatureRangeMap);
+            RangeChecker checker = new RangeChecker("Temperature", _temperatureRangeMap);
 
             RangeResult result = checker.CalculateParameterRangeResult(25);
 
@@ -38,7 +37,7 @@ namespace AlertSystem.Test
         [Fact]
         public void WhenTemperatureIsLowThenCalculateRangeResult()
         {
-            RangeChecker checker = new RangeChecker("Temperature", temperatureRangeMap);
+            RangeChecker checker = new RangeChecker("Temperature", _temperatureRangeMap);
 
             RangeResult result = checker.CalculateParameterRangeResult(2);
 
