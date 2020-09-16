@@ -18,19 +18,11 @@
         /// <summary>
         /// Gets/sets the character used for column delimiters.
         /// </summary>
-        public char Delimiter
-        {
-            get => SpecialChars[DelimiterIndex];
-            set => SpecialChars[DelimiterIndex] = value;
-        }
+        public char Delimiter => SpecialChars[DelimiterIndex];
 
         /// <summary>
         /// Gets/sets the character used for column quotes.
         /// </summary>
-        public char Quote
-        {
-            get => SpecialChars[QuoteIndex];
-            set => SpecialChars[QuoteIndex] = value;
-        }
+        public char Quote => SpecialChars[QuoteIndex];
     }
 }
