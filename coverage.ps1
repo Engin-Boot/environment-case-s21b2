@@ -1,4 +1,4 @@
-param($linerate)
+param($linerate, $projectName)
 
 function WriteXmlToScreen ([xml]$xml)
 {
@@ -11,7 +11,7 @@ function WriteXmlToScreen ([xml]$xml)
     Write-Output $StringWriter.ToString();
 }
 
-$report = Get-Content -Path CsvFileReaderAndWriter.Test\TestResults\*\coverage.cobertura.xml | Out-String
+$report = Get-Content -Path $projectName\TestResults\*\coverage.cobertura.xml | Out-String
 Write-Host "---------------------------------"
 Write-Host "Code Coverage report ..." 
 Write-Host "---------------------------------"
