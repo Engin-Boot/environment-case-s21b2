@@ -1,30 +1,30 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace CsvFileReaderAndWriter
 {
-    public class CsvFileReader : CsvFileCommon, IDisposable
+   public class CsvFileReader : CsvFileCommon, IDisposable
     {
         // Private members
-        private readonly StreamReader Reader;
-        private string CurrLine;
-        private int CurrPos;
+        private readonly StreamReader _reader;
+        private string _currLine;
+        private int _currPos;
 
+/*
         public CsvFileReader(Stream stream)
         {
-            Reader = new StreamReader(stream);
+            _reader = new StreamReader(stream);
             //EmptyLineBehavior = emptyLineBehavior;
         }
+*/
 
 
         public CsvFileReader(string path)
         {
-            Reader = new StreamReader(path);
+            _reader = new StreamReader(path);
             //EmptyLineBehavior = emptyLineBehavior;
         }
 
@@ -34,15 +34,15 @@ namespace CsvFileReaderAndWriter
             // Verify required argument
             if (columns == null)
             {
-                throw new ArgumentNullException("columns");
+                throw new ArgumentNullException(nameof(columns));
             }
 
             //ReadNextLine:
             // Read next line from the file
-            CurrLine = Reader.ReadLine();
-            CurrPos = 0;
+            _currLine = _reader.ReadLine();
+            _currPos = 0;
             // Test for end of file
-            if (CurrLine == null)
+            if (_currLine == null)
             {
                 return false;
             }
@@ -55,7 +55,7 @@ namespace CsvFileReaderAndWriter
             //    return true;
             //}
 
-            AddRowInColumn(columns);
+            AddRowInColumn(columns: columns);
             // Indicate success
             return true;
         }
@@ -69,18 +69,18 @@ namespace CsvFileReaderAndWriter
         private string ReadQuotedColumn()
         {
             // Skip opening quote character
-            Debug.Assert(CurrPos < CurrLine.Length && CurrLine[CurrPos] == Quote);
-            CurrPos++;
+            Debug.Assert(_currPos < _currLine.Length && _currLine[_currPos] == Quote);
+            _currPos++;
 
             // Parse column
             StringBuilder builder = new StringBuilder();
             ConseqQuotes(builder);
 
-            if (CurrPos < CurrLine.Length)
+            if (_currPos < _currLine.Length)
             {
                 // Consume closing quote
-                Debug.Assert(CurrLine[CurrPos] == Quote);
-                CurrPos++;
+                Debug.Assert(_currLine[_currPos] == Quote);
+                _currPos++;
                 // Append any additional characters appearing before next delimiter
                 builder.Append(ReadUnquotedColumn());
             }
@@ -97,21 +97,20 @@ namespace CsvFileReaderAndWriter
         private string ReadUnquotedColumn()
         {
 
-            int startPos = CurrPos;
-            CurrPos = CurrLine.IndexOf(Delimiter, CurrPos);
-            if (CurrPos == -1)
+            int startPos = _currPos;
+            _currPos = _currLine.IndexOf(Delimiter, _currPos);
+            if (_currPos == -1)
             {
-                CurrPos = CurrLine.Length;
+                _currPos = _currLine.Length;
             }
 
-            return CurrPos > startPos ? CurrLine.Substring(startPos, CurrPos - startPos) : string.Empty;
+            return _currPos > startPos ? _currLine.Substring(startPos, _currPos - startPos) : string.Empty;
         }
 
         private void AddRowInColumn(List<string> columns)
 
         {
             // Parse line
-            string column;
             int numColumns = 0;
             while (true)
             {
@@ -120,19 +119,19 @@ namespace CsvFileReaderAndWriter
                 //     column = ReadQuotedColumn();
                 //   else
                 //     column = ReadUnquotedColumn();
-                column = FillStringcolumnValue();
+                var column = FillStringcolumnValue();
                 // Add column to list
                 AddColumnToColumnsList(columns, numColumns, column);
 
                 numColumns++;
                 // Break if we reached the end of the line
-                if (CurrPos == CurrLine.Length)
+                if (_currPos == _currLine.Length)
                 {
                     break;
                 }
                 // Otherwise skip delimiter
-                Debug.Assert(CurrLine[CurrPos] == Delimiter);
-                CurrPos++;
+                Debug.Assert(_currLine[_currPos] == Delimiter);
+                _currPos++;
             }
             // Remove any unused columns from collection
             RemoveUnusedColumnsFromColumnsList(columns, numColumns);
@@ -141,7 +140,7 @@ namespace CsvFileReaderAndWriter
         public string FillStringcolumnValue()
         {
 
-            return CurrPos < CurrLine.Length && CurrLine[CurrPos] == Quote ? ReadQuotedColumn() : ReadUnquotedColumn();
+            return _currPos < _currLine.Length && _currLine[_currPos] == Quote ? ReadQuotedColumn() : ReadUnquotedColumn();
         }
         public void RemoveUnusedColumnsFromColumnsList(List<string> columns, int numColumns)
         {
@@ -170,12 +169,12 @@ namespace CsvFileReaderAndWriter
             EndOfLineConditionCheckInConseqQuotes(builder);
 
             // Test for quote character
-            if (CurrLine[CurrPos] == Quote)
+            if (_currLine[_currPos] == Quote)
             {
 
                 if (CheckForTwoQuotesIf())
                 {
-                    CurrPos++;
+                    _currPos++;
                 }
                 else
                 {
@@ -184,7 +183,7 @@ namespace CsvFileReaderAndWriter
                 }
             }
             // Add current character to the column
-            _ = builder.Append(CurrLine[CurrPos++]);
+            _ = builder.Append(_currLine[_currPos++]);
             ConseqQuotes(builder);
             //}
         }
@@ -192,17 +191,17 @@ namespace CsvFileReaderAndWriter
         public bool CheckForTwoQuotesIf()
         {
             // If two quotes, skip first and treat second as literal
-            int nextPos = CurrPos + 1;
-            bool val = nextPos < CurrLine.Length && CurrLine[nextPos] == Quote;
+            int nextPos = _currPos + 1;
+            bool val = nextPos < _currLine.Length && _currLine[nextPos] == Quote;
             return val;
         }
         public void EndOfLineConditionCheckInConseqQuotes(StringBuilder builder)
         {
-            while (CurrPos == CurrLine.Length)
+            while (_currLine != null && _currPos == _currLine.Length)
             {
                 // End of line so attempt to read the next line
-                CurrLine = Reader.ReadLine();
-                CurrPos = 0;
+                _currLine = _reader.ReadLine();
+                _currPos = 0;
                 // Done if we reached the end of the file
                 //  if (CurrLine == null)
                 //      return builder.ToString();
@@ -213,7 +212,7 @@ namespace CsvFileReaderAndWriter
         // Propagate Dispose to StreamReader
         public void Dispose()
         {
-            Reader.Dispose();
+            _reader.Dispose();
         }
     }
 
