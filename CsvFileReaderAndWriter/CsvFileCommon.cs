@@ -9,7 +9,7 @@
         /// These are special characters in CSV files. If a column contains any
         /// of these characters, the entire column is wrapped in double quotes.
         /// </summary>
-        protected char[] SpecialChars = new char[] { ',', '"', '\r', '\n' };
+        protected readonly char[] SpecialChars = new char[] { ',', '"', '\r', '\n' };
 
         // Indexes into SpecialChars for characters with specific meaning
         private const int DelimiterIndex = 0;
@@ -18,11 +18,11 @@
         /// <summary>
         /// Gets/sets the character used for column delimiters.
         /// </summary>
-        public char Delimiter => SpecialChars[DelimiterIndex];
+        protected char Delimiter => SpecialChars[DelimiterIndex];
 
         /// <summary>
         /// Gets/sets the character used for column quotes.
         /// </summary>
-        public char Quote => SpecialChars[QuoteIndex];
+        protected char Quote => SpecialChars[QuoteIndex];
     }
 }

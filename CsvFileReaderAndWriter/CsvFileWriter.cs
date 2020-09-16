@@ -50,7 +50,7 @@ namespace CsvFileReaderAndWriter
         }
 
         // Set values of quotes as per current quote character
-        public void SetupQuotes()
+        private void SetupQuotes()
         {
             if (_oneQuote == null || _oneQuote[0] != Quote)
             {
@@ -64,7 +64,7 @@ namespace CsvFileReaderAndWriter
         /// Add delimiter to CSV file based on column index
         /// </summary>
         /// <param name="columnIndex">The index of column</param>
-        public void AddDelimiter(int columnIndex)
+        private void AddDelimiter(int columnIndex)
         {
             // Add delimiter if this isn't the first column of a row
             if (columnIndex > 0)
@@ -76,7 +76,7 @@ namespace CsvFileReaderAndWriter
         /// The column content is wrapped in quotes if it contains a special character
         /// </summary>
         /// <param name="column">The string or content of a column</param>
-        public void WriteColumn(string column)
+        private void WriteColumn(string column)
         {
             if (column.IndexOfAny(SpecialChars) == -1)
                 _writer.Write(column);
