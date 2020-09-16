@@ -11,7 +11,7 @@ namespace CsvFileReaderAndWriter
     public class CsvFileReader : CsvFileCommon, IDisposable
         {
             // Private members
-            private StreamReader Reader;
+            private readonly StreamReader Reader;
             private string CurrLine;
             private int CurrPos;
             //private EmptyLineBehavior EmptyLineBehavior;
@@ -39,57 +39,37 @@ namespace CsvFileReaderAndWriter
             /// </summary>
             /// <param name="columns">Collection to hold the columns read</param>
             public bool ReadRow(List<string> columns)
-                {
-                    // Verify required argument
-                    if (columns == null)
-                        throw new ArgumentNullException("columns");
+            {
+                // Verify required argument
+                if (columns == null)
+                    throw new ArgumentNullException("columns");
 
-                    ReadNextLine:
-                    // Read next line from the file
-                    CurrLine = Reader.ReadLine();
-                    CurrPos = 0;
-                    // Test for end of file
-                    if (CurrLine == null)
-                        return false;
-                    // Test for empty line
-                    if (CurrLine.Length == 0)
-                    {
-                        goto ReadNextLine;
-                    }
+                //ReadNextLine:
+                // Read next line from the file
+                CurrLine = Reader.ReadLine();
+                CurrPos = 0;
+                // Test for end of file
+                if (CurrLine == null)
+                    return false;
+                // Test for empty line
+                //if (CurrLine.Length == 0)
+                //{
+                    //Console.WriteLine("yoyo");
+                    //goto ReadNextLine;
+                //    columns.Clear();
+                //    return true;
+                //}
 
-                    // Parse line
-                    string column;
-                    int numColumns = 0;
-                    while (true)
-                    {
-                        // Read next column
-                        if (CurrPos < CurrLine.Length && CurrLine[CurrPos] == Quote)
-                            column = ReadQuotedColumn();
-                        else
-                            column = ReadUnquotedColumn();
-                        // Add column to list
-                        if (numColumns < columns.Count)
-                            columns[numColumns] = column;
-                        else
-                            columns.Add(column);
-                        numColumns++;
-                        // Break if we reached the end of the line
-                        if (CurrLine == null || CurrPos == CurrLine.Length)
-                            break;
-                        // Otherwise skip delimiter
-                        Debug.Assert(CurrLine[CurrPos] == Delimiter);
-                        CurrPos++;
-                     }
-                    // Remove any unused columns from collection
-                    if (numColumns < columns.Count)
-                        columns.RemoveRange(numColumns, columns.Count - numColumns);
-                    // Indicate success
-                    return true;
-                }
+                AddRowInColumn(columns);
+                // Indicate success
+                return true;
+            }
 
             /// <summary>
-            /// Reads a quoted column by reading from the current line until a closing quote is found or the end of the file is reached. On return,
-            /// the current position points to the delimiter or the end of the last line in the file. Note: CurrLine may be set to null on return.
+            /// Reads a quoted column by reading from the current line until a
+            /// closing quote is found or the end of the file is reached. On return,
+            /// the current position points to the delimiter or the end of the last
+            /// line in the file. Note: CurrLine may be set to null on return.
             /// </summary>
             private string ReadQuotedColumn()
             {
@@ -99,33 +79,7 @@ namespace CsvFileReaderAndWriter
 
                 // Parse column
                 StringBuilder builder = new StringBuilder();
-                while (true)
-                {
-                    while (CurrPos == CurrLine.Length)
-                    {
-                        // End of line so attempt to read the next line
-                        CurrLine = Reader.ReadLine();
-                        CurrPos = 0;
-                        // Done if we reached the end of the file
-                        if (CurrLine == null)
-                            return builder.ToString();
-                        // Otherwise, treat as a multi-line field
-                        builder.Append(Environment.NewLine);
-                    }
-
-                    // Test for quote character
-                    if (CurrLine[CurrPos] == Quote)
-                    {
-                        // If two quotes, skip first and treat second as literal
-                        int nextPos = (CurrPos + 1);
-                        if (nextPos < CurrLine.Length && CurrLine[nextPos] == Quote)
-                            CurrPos++;
-                        else
-                            break;  // Single quote ends quoted sequence
-                    }
-                    // Add current character to the column
-                    builder.Append(CurrLine[CurrPos++]);
-                }
+                ConseqQuotes(builder);
 
                 if (CurrPos < CurrLine.Length)
                 {
@@ -140,13 +94,16 @@ namespace CsvFileReaderAndWriter
             }
 
             /// <summary>
-            /// Reads an unquoted column by reading from the current line until a delimiter is found or the end of the line is reached. On return, the
-            /// current position points to the delimiter or the end of the current line.
+            /// Reads an unquoted column by reading from the current line until a
+            /// delimiter is found or the end of the line is reached. On return, the
+            /// current position points to the delimiter or the end of the current
+            /// line.
             /// </summary>
             private string ReadUnquotedColumn()
             {
-                int startPos = CurrPos;
-                CurrPos = CurrLine.IndexOf(Delimiter, CurrPos);
+            
+            int startPos = CurrPos;
+            CurrPos = CurrLine.IndexOf(Delimiter, CurrPos);
                 if (CurrPos == -1)
                     CurrPos = CurrLine.Length;
                 if (CurrPos > startPos)
@@ -154,8 +111,106 @@ namespace CsvFileReaderAndWriter
                 return String.Empty;
             }
 
-            // Propagate Dispose to StreamReader
-            public void Dispose()
+        private void AddRowInColumn(List<string> columns)
+
+        {
+            // Parse line
+            string column;
+            int numColumns = 0;
+            while (true)
+            {
+                // Read next column
+                // if (CurrPos < CurrLine.Length && CurrLine[CurrPos] == Quote)
+                //     column = ReadQuotedColumn();
+                //   else
+                //     column = ReadUnquotedColumn();
+                column = FillStringcolumnValue();
+                // Add column to list
+                AddColumnToColumnsList(columns,numColumns,column);
+                
+                numColumns++;
+                // Break if we reached the end of the line
+                if ( CurrPos == CurrLine.Length)
+                    break;
+                // Otherwise skip delimiter
+                Debug.Assert(CurrLine[CurrPos] == Delimiter);
+                CurrPos++;
+            }
+            // Remove any unused columns from collection
+            RemoveUnusedColumnsFromColumnsList(columns, numColumns);
+        }
+
+        public string FillStringcolumnValue()
+        {
+            
+            if (CurrPos < CurrLine.Length && CurrLine[CurrPos] == Quote)
+                return ReadQuotedColumn();
+                   else
+                return ReadUnquotedColumn();
+        }
+        public void RemoveUnusedColumnsFromColumnsList(List<string> columns, int numColumns)
+        {
+            if (numColumns < columns.Count)
+                columns.RemoveRange(numColumns, columns.Count - numColumns);
+        }
+        public void AddColumnToColumnsList(List<string> columns, int numColumns, String column)
+        {
+            if (numColumns < columns.Count)
+                    columns[numColumns] = column;
+                else
+                    columns.Add(column);
+        }
+
+        public void ConseqQuotes(StringBuilder builder)
+        {
+           // while (true)
+           // {
+
+                EndOfLineConditionCheckInConseqQuotes(builder);
+
+                // Test for quote character
+                if (CurrLine[CurrPos] == Quote)
+                {
+                    
+                    if (CheckForTwoQuotesIf())
+                        CurrPos++;
+                    else
+                        //break;  // Single quote ends quoted sequence
+                        return;
+                }
+                // Add current character to the column
+                builder.Append(CurrLine[CurrPos++]);
+            ConseqQuotes(builder);
+            //}
+        }
+
+        public bool CheckForTwoQuotesIf()
+        {
+            // If two quotes, skip first and treat second as literal
+            int nextPos = (CurrPos + 1);
+            bool val = nextPos < CurrLine.Length && CurrLine[nextPos] == Quote;
+            return val;
+        }
+        public void EndOfLineConditionCheckInConseqQuotes(StringBuilder builder)
+        {
+            while (CurrPos == CurrLine.Length)
+            {
+                // End of line so attempt to read the next line
+                CurrLine = Reader.ReadLine();
+                CurrPos = 0;
+                // Done if we reached the end of the file
+                //  if (CurrLine == null)
+                //      return builder.ToString();
+                // Otherwise, treat as a multi-line field
+                builder.Append(Environment.NewLine);
+            }
+        }
+        public void TwoConsequtiveQuotesCheckInConseqQuotes(StringBuilder builder)
+        { 
+
+        }
+        // Propagate Dispose to StreamReader
+        public void Dispose()
             {
                 Reader.Dispose();
             }
