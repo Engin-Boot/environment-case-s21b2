@@ -13,9 +13,9 @@
             {
                 _map[i] = new MapRangeToParameterStatus(
                     map[i].LowerLimit, 
-                    map[i].UpperLimit, 
+                    map[i].UpperLimit,
                     map[i].Status,
-                    map[i].Message);
+                    map[i].Level);
             }
         }
 
@@ -23,8 +23,9 @@
         {
             RangeResult result = new RangeResult
             {
+                Parameter = this._parameter,
                 Status = ParameterStatus.Normal,
-                Message = ""
+                Level = BreachLevel.Safe
             };
 
             for (int i = 0; i < _map.Length; i++)
@@ -32,7 +33,7 @@
                 if (IsParameterInRange(_map[i].LowerLimit, _map[i].UpperLimit, parameterValue))
                 {
                     result.Status = _map[i].Status;
-                    result.Message = this._parameter + " " + _map[i].Message;
+                    result.Level = _map[i].Level;
                     break;
                 }
             }

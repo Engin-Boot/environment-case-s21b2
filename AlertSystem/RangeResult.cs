@@ -1,8 +1,15 @@
 ﻿namespace AlertSystem
 {
+    public enum BreachLevel
+    {
+        Safe,
+        Warning,
+        Error
+    }
     public struct RangeResult
     {
+        public string Parameter;
         public ParameterStatus Status;
-        public string Message;
+        public BreachLevel Level;
     }
 }
