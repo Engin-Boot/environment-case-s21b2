@@ -1,7 +1,21 @@
 ﻿namespace AlertSystem
 {
+    public delegate void ParameterRangeBreachHandler(string parameter, ParameterStatus status, BreachLevel level);
     public class RangeChecker
     {
+
+#region Events
+        private ParameterRangeBreachHandler _parameterRangeBreached;
+#endregion
+
+#region Event Mutators
+
+        public void Add_ParameterRangeBreached(ParameterRangeBreachHandler handler)
+        {
+            this._parameterRangeBreached += handler;
+        }
+#endregion
+
         private readonly string _parameter; 
         private readonly MapRangeToParameterStatus[] _map;
 
@@ -34,11 +48,17 @@
                 {
                     result.Status = _map[i].Status;
                     result.Level = _map[i].Level;
+                    OnParameterRangeBreach(result);
                     break;
                 }
             }
 
             return result;
+        }
+
+        private void OnParameterRangeBreach(RangeResult result)
+        {
+            _parameterRangeBreached?.Invoke(this._parameter, result.Status, result.Level);
         }
 
         private bool IsParameterInRange(int lower, int upper, int value)

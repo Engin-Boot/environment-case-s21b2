@@ -8,6 +8,7 @@ namespace AlertSystem
     public interface IAlerter
     {
         public void SendAlert(string parameter, ParameterStatus status, BreachLevel level);
+        public void Dispose();
     }
 
     public class AlertByReportToCsvFile: IAlerter
@@ -17,12 +18,12 @@ namespace AlertSystem
         public AlertByReportToCsvFile(string fileName)
         {
             _writer = new CsvFileWriter(fileName);
-            List<string> columns = new List<string>() { "Date and Time", "Parameter", "Parameter Status", "Breach Level/ Alert Type" };
+            List<string> columns = new List<string>() { "Date and Time", "Parameter", "Parameter Status", "Breach Level" };
             _writer.WriteRow(columns);
 
         }
 
-        ~AlertByReportToCsvFile()
+        public void Dispose()
         {
             _writer.Dispose();
         }
