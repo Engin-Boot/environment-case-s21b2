@@ -16,6 +16,7 @@ namespace AlertSystem.Test
         {
             _csvAlerter.SendAlert("Humidity", ParameterStatus.VeryHigh, BreachLevel.Error);
             _csvAlerter.SendAlert("Temperature", ParameterStatus.Low, BreachLevel.Warning);
+            _csvAlerter.Dispose();
         }
         
     }

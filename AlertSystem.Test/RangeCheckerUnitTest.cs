@@ -16,7 +16,7 @@ namespace AlertSystem.Test
                 new MapRangeToParameterStatus(0, 3, ParameterStatus.Low, BreachLevel.Warning);
 
             _temperatureRangeMap[2] =
-                new MapRangeToParameterStatus(38, 4, ParameterStatus.High, BreachLevel.Warning);
+                new MapRangeToParameterStatus(38, 40, ParameterStatus.High, BreachLevel.Warning);
 
             _temperatureRangeMap[3] =
                 new MapRangeToParameterStatus(41, int.MaxValue, ParameterStatus.VeryHigh, BreachLevel.Error);
@@ -45,6 +45,26 @@ namespace AlertSystem.Test
             Assert.Equal("Temperature", result.Parameter);
             Assert.Equal(BreachLevel.Warning, result.Level);
             Assert.Equal(ParameterStatus.Low, result.Status);
+        }
+
+        [Fact]
+        public void WhenRangeCheckerHasDelegateInstanceThenRunInvokeMethod()
+        {
+            
+            AlertByReportToCsvFile csvFileAlerter = new AlertByReportToCsvFile("RangeCheckerTestFile.csv");
+
+            ParameterRangeBreachHandler handler = csvFileAlerter.SendAlert;
+
+            RangeChecker rangeChecker = new RangeChecker("Temperature", _temperatureRangeMap);
+
+            rangeChecker.Add_ParameterRangeBreached(handler);
+
+            rangeChecker.CalculateParameterRangeResult(25);
+            rangeChecker.CalculateParameterRangeResult(-2);
+            rangeChecker.CalculateParameterRangeResult(55);
+            rangeChecker.CalculateParameterRangeResult(38);
+
+            csvFileAlerter.Dispose();
         }
 
     }
