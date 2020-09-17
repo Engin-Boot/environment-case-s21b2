@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFileReaderAndWriter", "CsvFileReaderAndWriter\CsvFileReaderAndWriter.csproj", "{D37E3A8E-FA5C-43DF-A2AE-EC0AD2203788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvFileReaderAndWriter", "CsvFileReaderAndWriter\CsvFileReaderAndWriter.csproj", "{D37E3A8E-FA5C-43DF-A2AE-EC0AD2203788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFileReaderAndWriter.Test", "CsvFileReaderAndWriter.Test\CsvFileReaderAndWriter.Test.csproj", "{F7274952-E605-4AE9-BBA5-418EC00382D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvFileReaderAndWriter.Test", "CsvFileReaderAndWriter.Test\CsvFileReaderAndWriter.Test.csproj", "{F7274952-E605-4AE9-BBA5-418EC00382D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertSystem", "AlertSystem\AlertSystem.csproj", "{11D294F3-59FD-4AC6-9122-81A3213060F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertSystem", "AlertSystem\AlertSystem.csproj", "{11D294F3-59FD-4AC6-9122-81A3213060F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertSystem.Test", "AlertSystem.Test\AlertSystem.Test.csproj", "{10F7670D-AB4A-4B85-8F80-0625D4A249C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlertSystem.Test", "AlertSystem.Test\AlertSystem.Test.csproj", "{10F7670D-AB4A-4B85-8F80-0625D4A249C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D37E3A8E-FA5C-43DF-A2AE-EC0AD2203788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +69,11 @@ Global
 		{10F7670D-AB4A-4B85-8F80-0625D4A249C2}.Release|x64.Build.0 = Release|Any CPU
 		{10F7670D-AB4A-4B85-8F80-0625D4A249C2}.Release|x86.ActiveCfg = Release|Any CPU
 		{10F7670D-AB4A-4B85-8F80-0625D4A249C2}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A93D1C7B-A2CB-4F80-BF06-D09883934DB3}
 	EndGlobalSection
 EndGlobal
