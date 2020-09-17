@@ -59,10 +59,7 @@ namespace AlertSystem.Test
 
             rangeChecker.Add_ParameterRangeBreached(handler);
 
-            rangeChecker.CalculateParameterRangeResult(25);
             rangeChecker.CalculateParameterRangeResult(-2);
-            rangeChecker.CalculateParameterRangeResult(55);
-            rangeChecker.CalculateParameterRangeResult(38);
 
             csvFileAlerter.Dispose();
         }

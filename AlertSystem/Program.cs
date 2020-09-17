@@ -23,20 +23,7 @@
         }
         static void Main()
         {
-            AlertByReportToCsvFile csvFileAlerter = new AlertByReportToCsvFile("Sample.csv");
-
-            ParameterRangeBreachHandler handler = csvFileAlerter.SendAlert;
-
-            RangeChecker rangeChecker = new RangeChecker("Temperature", TemperatureRangeMap);
-
-            rangeChecker.Add_ParameterRangeBreached(handler);
-
-            rangeChecker.CalculateParameterRangeResult(25);
-            rangeChecker.CalculateParameterRangeResult(-2);
-            rangeChecker.CalculateParameterRangeResult(55);
-            rangeChecker.CalculateParameterRangeResult(38);
-
-            csvFileAlerter.Dispose();
+            
         }
     }
 }
