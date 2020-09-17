@@ -16,6 +16,7 @@ namespace CsvFileReaderAndWriter.Test
                 List<string> columns = new List<string>() { "Date Time", "Alert Level", "Alert Message" };
                 writer.WriteRow(columns);
             }
+            writer.Dispose();
         }
 
         [Fact]
@@ -28,6 +29,7 @@ namespace CsvFileReaderAndWriter.Test
                 List<string> columns = new List<string>() { "Date \n Time", "Alert Level", "Alert Message" };
                 writer.WriteRow(columns);
             }
+            writer.Dispose();
         }
 
         [Fact]
@@ -38,6 +40,8 @@ namespace CsvFileReaderAndWriter.Test
             Exception ex = Assert.Throws<ArgumentNullException>(() => writer.WriteRow(null));
 
             Assert.Equal("Value cannot be null. (Parameter 'columns')", ex.Message);
+            
+            writer.Dispose();
         }
     }
 }
