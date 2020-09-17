@@ -10,16 +10,16 @@ namespace AlertSystem.Test
             _temperatureRangeMap = new MapRangeToParameterStatus[4];
 
             _temperatureRangeMap[0] =
-                new MapRangeToParameterStatus(int.MinValue, -1, ParameterStatus.VeryLow, "is very low!");
+                new MapRangeToParameterStatus(int.MinValue, -1, ParameterStatus.VeryLow, BreachLevel.Error);
 
             _temperatureRangeMap[1] =
-                new MapRangeToParameterStatus(0, 3, ParameterStatus.Low, "is low!");
+                new MapRangeToParameterStatus(0, 3, ParameterStatus.Low, BreachLevel.Warning);
 
             _temperatureRangeMap[2] =
-                new MapRangeToParameterStatus(38, 40, ParameterStatus.High, "is high!");
+                new MapRangeToParameterStatus(38, 4, ParameterStatus.High, BreachLevel.Warning);
 
             _temperatureRangeMap[3] =
-                new MapRangeToParameterStatus(41, int.MaxValue, ParameterStatus.VeryHigh, "is very high!");
+                new MapRangeToParameterStatus(41, int.MaxValue, ParameterStatus.VeryHigh, BreachLevel.Error);
 
         }
 
@@ -30,8 +30,9 @@ namespace AlertSystem.Test
 
             RangeResult result = checker.CalculateParameterRangeResult(25);
 
+            Assert.Equal("Temperature", result.Parameter);
+            Assert.Equal(BreachLevel.Safe, result.Level);
             Assert.Equal(ParameterStatus.Normal, result.Status);
-            Assert.Equal("", result.Message);
         }
         
         [Fact]
@@ -41,8 +42,9 @@ namespace AlertSystem.Test
 
             RangeResult result = checker.CalculateParameterRangeResult(2);
 
+            Assert.Equal("Temperature", result.Parameter);
+            Assert.Equal(BreachLevel.Warning, result.Level);
             Assert.Equal(ParameterStatus.Low, result.Status);
-            Assert.Equal("Temperature is low!", result.Message);
         }
 
     }
