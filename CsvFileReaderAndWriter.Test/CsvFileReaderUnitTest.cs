@@ -8,7 +8,7 @@ using Xunit;
 
 namespace CsvFileReaderAndWriter.Test
 {
-    class CsvFileReaderUnitTest
+    public class CsvFileReaderUnitTest
     {
         [Fact]
         public void WhenColumnIsNullThenThrowArgumentNullException()
