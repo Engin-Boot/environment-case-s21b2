@@ -18,7 +18,7 @@ namespace AlertSystem
         public AlertByReportToCsvFile(string fileName)
         {
             _writer = new CsvFileWriter(fileName);
-            List<string> columns = new List<string>() { "Date and Time", "Parameter", "Parameter Status", "Breach Level" };
+            var columns = new List<string> { "Date and Time", "Parameter", "Parameter Status", "Breach Level" };
             _writer.WriteRow(columns);
 
         }
@@ -31,7 +31,7 @@ namespace AlertSystem
         public void SendAlert(string parameter, ParameterStatus status, BreachLevel level)
         {
             
-            List<string> columns = new List<string>()
+            var columns = new List<string>
             {
                 DateAndTime.Now.ToString(CultureInfo.InvariantCulture), 
                 parameter, 

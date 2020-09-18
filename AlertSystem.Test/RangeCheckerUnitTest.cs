@@ -26,9 +26,9 @@ namespace AlertSystem.Test
         [Fact]
         public void WhenTemperatureIsNormalThenCalculateRangeResult()
         {
-            RangeChecker checker = new RangeChecker("Temperature", _temperatureRangeMap);
+            var checker = new RangeChecker("Temperature", _temperatureRangeMap, null);
 
-            RangeResult result = checker.CalculateParameterRangeResult(25);
+            var result = checker.CalculateParameterRangeResult(25);
 
             Assert.Equal("Temperature", result.Parameter);
             Assert.Equal(BreachLevel.Safe, result.Level);
@@ -38,9 +38,9 @@ namespace AlertSystem.Test
         [Fact]
         public void WhenTemperatureIsLowThenCalculateRangeResult()
         {
-            RangeChecker checker = new RangeChecker("Temperature", _temperatureRangeMap);
+            var checker = new RangeChecker("Temperature", _temperatureRangeMap, null);
 
-            RangeResult result = checker.CalculateParameterRangeResult(2);
+            var result = checker.CalculateParameterRangeResult(2);
 
             Assert.Equal("Temperature", result.Parameter);
             Assert.Equal(BreachLevel.Warning, result.Level);
@@ -51,13 +51,9 @@ namespace AlertSystem.Test
         public void WhenRangeCheckerHasDelegateInstanceThenRunInvokeMethod()
         {
             
-            AlertByReportToCsvFile csvFileAlerter = new AlertByReportToCsvFile("RangeCheckerTestFile.csv");
+            var csvFileAlerter = new AlertByReportToCsvFile("RangeCheckerTestFile.csv");
 
-            ParameterRangeBreachHandler handler = csvFileAlerter.SendAlert;
-
-            RangeChecker rangeChecker = new RangeChecker("Temperature", _temperatureRangeMap);
-
-            rangeChecker.Add_ParameterRangeBreached(handler);
+            var rangeChecker = new RangeChecker("Temperature", _temperatureRangeMap, csvFileAlerter.SendAlert);
 
             rangeChecker.CalculateParameterRangeResult(-2);
 

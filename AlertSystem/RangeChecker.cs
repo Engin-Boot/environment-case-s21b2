@@ -1,4 +1,6 @@
-﻿namespace AlertSystem
+﻿using System.Collections.Generic;
+
+namespace AlertSystem
 {
     public delegate void ParameterRangeBreachHandler(string parameter, ParameterStatus status, BreachLevel level);
     public class RangeChecker
@@ -12,18 +14,18 @@
 
         public void Add_ParameterRangeBreached(ParameterRangeBreachHandler handler)
         {
-            this._parameterRangeBreached += handler;
+            _parameterRangeBreached += handler;
         }
 #endregion
 
         private readonly string _parameter; 
         private readonly MapRangeToParameterStatus[] _map;
 
-        public RangeChecker(string parameter, MapRangeToParameterStatus[] map)
+        public RangeChecker(string parameter, IList<MapRangeToParameterStatus> map, ParameterRangeBreachHandler handler)
         {
             _parameter = parameter;
-            _map = new MapRangeToParameterStatus[map.Length];
-            for (int i = 0; i < map.Length; i++)
+            _map = new MapRangeToParameterStatus[map.Count];
+            for (var i = 0; i < map.Count; i++)
             {
                 _map[i] = new MapRangeToParameterStatus(
                     map[i].LowerLimit, 
@@ -31,26 +33,28 @@
                     map[i].Status,
                     map[i].Level);
             }
+
+            Add_ParameterRangeBreached(handler);
         }
 
         public RangeResult CalculateParameterRangeResult(int parameterValue)
         {
-            RangeResult result = new RangeResult
+            var result = new RangeResult
             {
-                Parameter = this._parameter,
+                Parameter = _parameter,
                 Status = ParameterStatus.Normal,
                 Level = BreachLevel.Safe
             };
 
-            for (int i = 0; i < _map.Length; i++)
+            for (var i = 0; i < _map.Length; i++)
             {
-                if (IsParameterInRange(_map[i].LowerLimit, _map[i].UpperLimit, parameterValue))
-                {
-                    result.Status = _map[i].Status;
-                    result.Level = _map[i].Level;
-                    OnParameterRangeBreach(result);
-                    break;
-                }
+                if (!IsParameterInRange(_map[i].LowerLimit, _map[i].UpperLimit, parameterValue))
+                    continue;
+                
+                result.Status = _map[i].Status;
+                result.Level = _map[i].Level;
+                OnParameterRangeBreach(result);
+                break;
             }
 
             return result;
@@ -58,10 +62,10 @@
 
         private void OnParameterRangeBreach(RangeResult result)
         {
-            _parameterRangeBreached?.Invoke(this._parameter, result.Status, result.Level);
+            _parameterRangeBreached?.Invoke(_parameter, result.Status, result.Level);
         }
 
-        private bool IsParameterInRange(int lower, int upper, int value)
+        private static bool IsParameterInRange(int lower, int upper, int value)
         {
             return value >= lower && value <= upper;
         }

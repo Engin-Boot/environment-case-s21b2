@@ -38,7 +38,7 @@ namespace CsvFileReaderAndWriter
             SetupQuotes();
 
             // Write each column
-            for (int i = 0; i < columns.Count; i++)
+            for (var i = 0; i < columns.Count; i++)
             {
                 // Add delimiter
                 AddDelimiter(i);
@@ -52,12 +52,12 @@ namespace CsvFileReaderAndWriter
         // Set values of quotes as per current quote character
         private void SetupQuotes()
         {
-            if (_oneQuote == null || _oneQuote[0] != Quote)
-            {
-                _oneQuote = $"{Quote}";
-                _twoQuotes = String.Format("{0}{0}", Quote);
-                _quotedFormat = String.Format("{0}{{0}}{0}", Quote);
-            }
+            if (_oneQuote != null && _oneQuote[0] == Quote)
+                return;
+
+            _oneQuote = $"{Quote}";
+            _twoQuotes = string.Format("{0}{0}", Quote);
+            _quotedFormat = string.Format("{0}{{0}}{0}", Quote);
         }
 
         /// <summary>
