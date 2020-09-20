@@ -1,0 +1,9 @@
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\bin\Debug\netstandard2.0\CsvFileReaderAndWriter.deps.json
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\bin\Debug\netstandard2.0\CsvFileReaderAndWriter.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\bin\Debug\netstandard2.0\CsvFileReaderAndWriter.pdb
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.csprojAssemblyReference.cache
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.AssemblyInfoInputs.cache
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.AssemblyInfo.cs
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.csproj.CoreCompileInputs.cache
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter\obj\Debug\netstandard2.0\CsvFileReaderAndWriter.pdb
