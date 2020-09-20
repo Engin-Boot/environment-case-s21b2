@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AlertSystem
+﻿namespace AlertSystem
 {
     public delegate void ParameterRangeBreachHandler(string parameter, ParameterStatus status, BreachLevel level);
     public class RangeChecker
@@ -12,7 +10,7 @@ namespace AlertSystem
 
 #region Event Mutators
 
-        public void Add_ParameterRangeBreached(ParameterRangeBreachHandler handler)
+        private void Add_ParameterRangeBreached(ParameterRangeBreachHandler handler)
         {
             _parameterRangeBreached += handler;
         }
@@ -21,11 +19,11 @@ namespace AlertSystem
         private readonly string _parameter; 
         private readonly MapRangeToParameterStatus[] _map;
 
-        public RangeChecker(string parameter, IList<MapRangeToParameterStatus> map, ParameterRangeBreachHandler handler)
+        public RangeChecker(string parameter, MapRangeToParameterStatus[] map, ParameterRangeBreachHandler handler)
         {
             _parameter = parameter;
-            _map = new MapRangeToParameterStatus[map.Count];
-            for (var i = 0; i < map.Count; i++)
+            _map = new MapRangeToParameterStatus[map.Length];
+            for (var i = 0; i < map.Length; i++)
             {
                 _map[i] = new MapRangeToParameterStatus(
                     map[i].LowerLimit, 

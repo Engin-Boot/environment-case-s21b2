@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace CsvFileReaderAndWriter
+namespace AlertSystem
 {
     /// <summary>
     /// Class for writing to comma-separated-value (CSV) files.

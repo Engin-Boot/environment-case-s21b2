@@ -8,12 +8,12 @@
         High,
         VeryHigh
     }
-    public struct MapRangeToParameterStatus
+    public readonly struct MapRangeToParameterStatus
     {
-        public int LowerLimit;
-        public int UpperLimit;
-        public ParameterStatus Status;
-        public BreachLevel Level;
+        public readonly int LowerLimit;
+        public readonly int UpperLimit;
+        public readonly ParameterStatus Status;
+        public readonly BreachLevel Level;
 
         public MapRangeToParameterStatus(int lowerLimit, int upperLimit, ParameterStatus status, BreachLevel level)
         {

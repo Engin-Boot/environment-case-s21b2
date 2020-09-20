@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace CsvFileReaderAndWriter.Test
+namespace AlertSystem.Test
 {
     public class CsvFileWriterUnitTest
     {
@@ -40,8 +40,9 @@ namespace CsvFileReaderAndWriter.Test
             Exception ex = Assert.Throws<ArgumentNullException>(() => writer.WriteRow(null));
 
             Assert.Equal("Value cannot be null. (Parameter 'columns')", ex.Message);
-            
+
             writer.Dispose();
         }
     }
 }
+
