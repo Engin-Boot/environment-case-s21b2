@@ -7,13 +7,23 @@ namespace AlertSystem
     /// <summary>
     /// Class for writing to comma-separated-value (CSV) files.
     /// </summary>
-    public class CsvFileWriter : CsvFileCommon, IDisposable
+    public class CsvFileWriter : IDisposable
     {
         // Private members
         private readonly StreamWriter _writer;
         private string _oneQuote;
         private string _twoQuotes;
         private string _quotedFormat;
+
+        /// <summary>
+        /// These are special characters in CSV files. If a column contains any
+        /// of these characters, the entire column is wrapped in double quotes.
+        /// </summary>
+        private readonly char[] _specialChars = { ',', '"', '\r', '\n' };
+
+        // Indexes into SpecialChars for characters with specific meaning
+        private const int DelimiterIndex = 0;
+        private const int QuoteIndex = 1;
 
         /// <summary>
         /// Initializes a new instance of the CsvFileWriter class for the
@@ -52,12 +62,12 @@ namespace AlertSystem
         // Set values of quotes as per current quote character
         private void SetupQuotes()
         {
-            if (_oneQuote != null && _oneQuote[0] == Quote)
+            if (_oneQuote != null && _oneQuote[0] == _specialChars[QuoteIndex])
                 return;
 
-            _oneQuote = $"{Quote}";
-            _twoQuotes = string.Format("{0}{0}", Quote);
-            _quotedFormat = string.Format("{0}{{0}}{0}", Quote);
+            _oneQuote = $"{_specialChars[QuoteIndex]}";
+            _twoQuotes = string.Format("{0}{0}", _specialChars[QuoteIndex]);
+            _quotedFormat = string.Format("{0}{{0}}{0}", _specialChars[QuoteIndex]);
         }
 
         /// <summary>
@@ -68,7 +78,7 @@ namespace AlertSystem
         {
             // Add delimiter if this isn't the first column of a row
             if (columnIndex > 0)
-                _writer.Write(Delimiter);
+                _writer.Write(_specialChars[DelimiterIndex]);
         }
 
         /// <summary>
@@ -78,7 +88,7 @@ namespace AlertSystem
         /// <param name="column">The string or content of a column</param>
         private void WriteColumn(string column)
         {
-            if (column.IndexOfAny(SpecialChars) == -1)
+            if (column.IndexOfAny(_specialChars) == -1)
                 _writer.Write(column);
             else
                 _writer.Write(_quotedFormat, column.Replace(_oneQuote, _twoQuotes));

@@ -2,11 +2,11 @@
 
 namespace AlertSystem.Test
 {
-    public class Alerter
+    public class AlerterUnitTest
     {
         private readonly IAlerter _csvAlerter;
 
-        public Alerter()
+        public AlerterUnitTest()
         {
             _csvAlerter = new AlertByReportToCsvFile("EnvironmentIssuesReport.csv");
         }
