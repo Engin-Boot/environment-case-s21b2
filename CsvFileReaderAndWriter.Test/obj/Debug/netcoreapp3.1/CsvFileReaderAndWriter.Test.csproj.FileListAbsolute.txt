@@ -1,3 +1,5 @@
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\testhost.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
@@ -14,7 +16,6 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CrossPlatEngine.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
@@ -86,6 +87,8 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.pdb
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.csprojAssemblyReference.cache
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.AssemblyInfoInputs.cache
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.AssemblyInfo.cs
@@ -94,6 +97,3 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.pdb
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.genruntimeconfig.cache
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.dll
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.pdb
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\testhost.exe
