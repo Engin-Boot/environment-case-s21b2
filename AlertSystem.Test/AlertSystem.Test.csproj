@@ -27,4 +27,37 @@
     <ProjectReference Include="..\AlertSystem\AlertSystem.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="xunit.abstractions">
+      <HintPath>..\packages\xunit.abstractions.2.0.3\lib\netstandard2.0\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.analyzers">
+      <HintPath>..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert">
+      <HintPath>..\packages\xunit.assert.2.4.1\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop">
+      <HintPath>..\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.dotnet">
+      <HintPath>..\packages\xunit.extensibility.execution.2.4.1\lib\netstandard1.1\xunit.execution.dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.reporters.net452">
+      <HintPath>..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.reporters.net452.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.tdnet">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.runner.tdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.utility.net452">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.runner.utility.net452.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.visualstudio.testadapter">
+      <HintPath>..\packages\xunit.runner.visualstudio.2.4.3\build\net452\xunit.runner.visualstudio.testadapter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
