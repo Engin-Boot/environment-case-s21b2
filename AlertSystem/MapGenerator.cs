@@ -1,6 +1,6 @@
 ﻿namespace AlertSystem
 {
-    public class MapGenerator
+    public static class MapGenerator
     {
         public static readonly MapRangeToParameterStatus[] TemperatureRangeMap;
         public static readonly MapRangeToParameterStatus[] HumidityRangeMap;

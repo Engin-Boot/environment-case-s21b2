@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace AlertSystem
 {
-    public class ReceiverController
+    public static class ReceiverController
     {
         [ExcludeFromCodeCoverage]
         private static bool ReadInput(out string data)
