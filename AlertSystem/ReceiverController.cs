@@ -9,7 +9,7 @@ namespace AlertSystem
         private static bool ReadInput(out string data)
         {
             data = Console.ReadLine();
-            return data != null && data != "exit";
+            return DataValidator.IsValidInput(data);
         }
 
         [ExcludeFromCodeCoverage]
@@ -22,11 +22,10 @@ namespace AlertSystem
 
             while (ReadInput(out var data))
             {
-                if (!DataValidator.IsValidInput(data)) continue;
-                var parameters = data.Split(" ");
-
                 try
                 {
+                    var parameters = data.Split(" ");
+
                     var temperature = DataValidator.ParameterParser(parameters[0]);
 
                     var humidity = DataValidator.ParameterParser(parameters[1]);
@@ -35,12 +34,7 @@ namespace AlertSystem
 
                     humidityRangeChecker.CalculateParameterRangeResult(humidity);
                 }
-                catch (ArgumentOutOfRangeException ex)
-                {
-                    Console.WriteLine(ex);
-                }
-
-                catch (FormatException ex)
+                catch (SystemException ex)
                 {
                     Console.WriteLine(ex);
                 }

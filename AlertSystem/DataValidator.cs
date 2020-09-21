@@ -40,7 +40,7 @@ namespace AlertSystem
                 acceptedNumberPattern +
                 humidityUnitPattern, RegexOptions.IgnoreCase);
 
-            return regex.IsMatch(data.Trim());
+            return data != null && data != "exit" && regex.IsMatch(data.Trim());
         }
     }
 }
