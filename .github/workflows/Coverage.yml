@@ -18,9 +18,10 @@ jobs:
         
       - name: Generate coverage report
         run: dotnet test --collect:"XPlat Code Coverage"
-      
-      - name: Check CsvFileReaderAndWriter Module Coverage
-        run: powershell ./coverage.ps1 -linerate 1 -projectName CsvFileReaderAndWriter.Test
 
       - name: Check Receiver Module Coverage
-        run: powershell ./coverage.ps1 -linerate 1 -projectName AlertSystem.Test
+        run: powershell ./coverage.ps1 -linerate 0.9 -projectName AlertSystem.Test      
+        
+      - name: Check Sender Module Coverage
+        run: powershell ./coverage.ps1 -linerate 0.9 -projectName CsvFileReaderAndWriter.Test
+
