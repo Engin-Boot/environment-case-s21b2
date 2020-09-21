@@ -5,12 +5,12 @@ namespace AlertSystem
 {
     public static class DataValidator
     {
-        public static int ParameterParser(string data)
+        public static double ParameterParser(string data)
         {
-            int value;
+            double value;
             try
             {
-                value = int.Parse(data.Trim().Substring(0, data.Length - 1));
+                value = double.Parse(data.Trim().Substring(0, data.Length - 1));
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -29,7 +29,7 @@ namespace AlertSystem
         public static bool IsValidInput(string data)
         {
             const string spacePattern = @"\s*";
-            const string acceptedNumberPattern = @"[\+-]?(\d*\.?\d?)";
+            const string acceptedNumberPattern = @"[\+-]?(\d*\.?\d?\d?)";
             const string temperatureUnitPattern = @"[ckf]";
             const string humidityUnitPattern = @"[%]";
 

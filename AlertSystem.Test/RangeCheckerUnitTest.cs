@@ -28,7 +28,7 @@ namespace AlertSystem.Test
         {
             var checker = new RangeChecker("Temperature", _temperatureRangeMap, null);
 
-            var result = checker.CalculateParameterRangeResult(25);
+            var result = checker.CalculateParameterRangeResult(25.00);
 
             Assert.Equal("Temperature", result.Parameter);
             Assert.Equal(BreachLevel.Safe, result.Level);
@@ -40,7 +40,7 @@ namespace AlertSystem.Test
         {
             var checker = new RangeChecker("Temperature", _temperatureRangeMap, null);
 
-            var result = checker.CalculateParameterRangeResult(2);
+            var result = checker.CalculateParameterRangeResult(2.00);
 
             Assert.Equal("Temperature", result.Parameter);
             Assert.Equal(BreachLevel.Warning, result.Level);
@@ -55,7 +55,7 @@ namespace AlertSystem.Test
 
             var rangeChecker = new RangeChecker("Temperature", _temperatureRangeMap, csvFileAlerter.SendAlert);
 
-            rangeChecker.CalculateParameterRangeResult(-2);
+            rangeChecker.CalculateParameterRangeResult(-2.00);
 
             csvFileAlerter.Dispose();
         }

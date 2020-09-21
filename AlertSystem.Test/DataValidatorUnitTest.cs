@@ -8,23 +8,31 @@ namespace AlertSystem.Test
         [Fact]
         public void WhenInputStringMatchesRegexThenValidateToTrue()
         {
-            var result = DataValidator.IsValidInput("25C 44%");
+            var result = DataValidator.IsValidInput("25.22C 44.02%");
+            Assert.True(result);
+
+            result = DataValidator.IsValidInput("25C 44.5%");
             Assert.True(result);
         }
 
         [Fact]
         public void WhenInputStringDoesNotMatchRegexThenValidateToFalse()
         {
-            var result = DataValidator.IsValidInput("25C");
+            var result = DataValidator.IsValidInput("25.15C");
             Assert.False(result);
         }
 
         [Fact]
         public void WhenTemperatureWithUnitStringIsParsedThenReturnTemperatureValue()
         {
-            const string temperatureWithUnit = "25C";
+            const string temperatureWithUnit = "25.00C";
             var temperatureValue = DataValidator.ParameterParser(temperatureWithUnit);
-            Assert.Equal(25, temperatureValue);
+            Assert.Equal(25.00, temperatureValue);
+
+            const string humidityWithUnit = "25%";
+            var humidityValue = DataValidator.ParameterParser(humidityWithUnit);
+            Assert.Equal(25, humidityValue);
+            Assert.Equal(typeof(double), humidityValue.GetType());
         }
 
         [Fact]

@@ -10,12 +10,12 @@
     }
     public readonly struct MapRangeToParameterStatus
     {
-        public readonly int LowerLimit;
-        public readonly int UpperLimit;
+        public readonly double LowerLimit;
+        public readonly double UpperLimit;
         public readonly ParameterStatus Status;
         public readonly BreachLevel Level;
 
-        public MapRangeToParameterStatus(int lowerLimit, int upperLimit, ParameterStatus status, BreachLevel level)
+        public MapRangeToParameterStatus(double lowerLimit, double upperLimit, ParameterStatus status, BreachLevel level)
         {
             LowerLimit = lowerLimit;
             UpperLimit = upperLimit;

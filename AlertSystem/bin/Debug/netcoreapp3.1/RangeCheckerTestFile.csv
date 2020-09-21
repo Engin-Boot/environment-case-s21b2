@@ -1,8 +1,0 @@
-Date and Time,Parameter,Parameter Status,Breach Level
-09/21/2020 16:12:22,Temperature,VeryLow,Error
-09/21/2020 16:12:22,Humidity,High,Warning
-09/21/2020 16:12:22,Temperature,VeryHigh,Error
-09/21/2020 16:12:22,Humidity,VeryHigh,Error
-09/21/2020 16:12:22,Temperature,Low,Warning
-09/21/2020 16:12:22,Humidity,High,Warning
-09/21/2020 16:12:22,Temperature,VeryHigh,Error

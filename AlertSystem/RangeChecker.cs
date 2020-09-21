@@ -35,7 +35,7 @@
             Add_ParameterRangeBreached(handler);
         }
 
-        public RangeResult CalculateParameterRangeResult(int parameterValue)
+        public RangeResult CalculateParameterRangeResult(double parameterValue)
         {
             var result = new RangeResult
             {
@@ -63,7 +63,7 @@
             _parameterRangeBreached?.Invoke(_parameter, result.Status, result.Level);
         }
 
-        private static bool IsParameterInRange(int lower, int upper, int value)
+        private static bool IsParameterInRange(double lower, double upper, double value)
         {
             return value >= lower && value <= upper;
         }
