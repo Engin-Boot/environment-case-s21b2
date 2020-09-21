@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "CsvFileReaderAndWriter/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/CsvFileReaderAndWriter.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CsvFileReaderAndWriter.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "CsvFileReaderAndWriter/1.0.0": {
-      "type": "project",
-      "path": "../CsvFileReaderAndWriter/CsvFileReaderAndWriter.csproj",
-      "msbuildProject": "../CsvFileReaderAndWriter/CsvFileReaderAndWriter.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "CsvFileReaderAndWriter >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\Tripti Saini\\.nuget\\packages\\": {},
@@ -55,11 +36,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Tripti Saini\\philips\\bootcamp\\environment-case-s21b2\\CsvFileReaderAndWriter\\CsvFileReaderAndWriter.csproj": {
-              "projectPath": "C:\\Users\\Tripti Saini\\philips\\bootcamp\\environment-case-s21b2\\CsvFileReaderAndWriter\\CsvFileReaderAndWriter.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

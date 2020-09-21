@@ -12,12 +12,6 @@
           "Microsoft.NET.Test.Sdk": "16.7.1",
           "coverlet.collector": "1.3.0",
           "xunit": "2.4.1",
-          "xunit.abstractions": "2.0.3",
-          "xunit.analyzers": "0.10.0",
-          "xunit.assert": "2.4.1",
-          "xunit.core": "2.4.1",
-          "xunit.extensibility.core": "2.4.1",
-          "xunit.extensibility.execution": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3"
         },
         "runtime": {
@@ -1095,16 +1089,8 @@
       },
       "xunit.runner.visualstudio/2.4.3": {},
       "AlertSystem/1.0.0": {
-        "dependencies": {
-          "CsvFileReaderAndWriter": "1.0.0"
-        },
         "runtime": {
           "AlertSystem.dll": {}
-        }
-      },
-      "CsvFileReaderAndWriter/1.0.0": {
-        "runtime": {
-          "CsvFileReaderAndWriter.dll": {}
         }
       }
     }
@@ -1753,11 +1739,6 @@
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
     "AlertSystem/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "CsvFileReaderAndWriter/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
