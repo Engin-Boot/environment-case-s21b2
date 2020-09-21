@@ -10,18 +10,6 @@ namespace CsvFileReaderAndWriter.Test
 {
     public class CsvFileReaderUnitTest
     {
-        [Fact]
-        public void WhenColumnIsNullThenThrowArgumentNullException()
-        {
-            
-            using var reader = new CsvFileReader("SampleReadTest.csv");
-
-            Exception ex = Assert.Throws<ArgumentNullException>(() => reader.ReadRow(null));
-
-            Assert.Equal("Value cannot be null. (Parameter 'columns')", ex.Message);
-
-            reader.Dispose();
-        }
 
         [Fact]
         public void WhenValidColumnsListIsEmptyThenReturnFalseToShowEndOfFile()
