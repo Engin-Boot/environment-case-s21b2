@@ -5583,6 +5583,12 @@
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
+      "xunit.abstractions >= 2.0.3",
+      "xunit.analyzers >= 0.10.0",
+      "xunit.assert >= 2.4.1",
+      "xunit.core >= 2.4.1",
+      "xunit.extensibility.core >= 2.4.1",
+      "xunit.extensibility.execution >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
   },
@@ -5645,6 +5651,30 @@
             "target": "Package",
             "version": "[2.4.1, )"
           },
+          "xunit.abstractions": {
+            "target": "Package",
+            "version": "[2.0.3, )"
+          },
+          "xunit.analyzers": {
+            "target": "Package",
+            "version": "[0.10.0, )"
+          },
+          "xunit.assert": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
+          "xunit.core": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
+          "xunit.extensibility.core": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
+          "xunit.extensibility.execution": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
           "xunit.runner.visualstudio": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -5667,7 +5697,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
