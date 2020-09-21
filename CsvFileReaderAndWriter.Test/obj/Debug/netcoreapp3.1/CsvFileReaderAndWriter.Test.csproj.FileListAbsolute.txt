@@ -104,3 +104,6 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.utility.net452.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.testadapter.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.execution.desktop.xml
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\MonitoringSensor.exe
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\MonitoringSensor.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\MonitoringSensor.pdb

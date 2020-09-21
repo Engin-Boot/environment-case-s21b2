@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace AlertSystem
 {
-    public class DataValidator
+    public static class DataValidator
     {
         public static int ParameterParser(string data)
         {
