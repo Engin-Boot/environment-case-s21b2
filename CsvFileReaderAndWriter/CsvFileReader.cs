@@ -128,13 +128,13 @@ namespace CsvFileReaderAndWriter
             RemoveUnusedColumnsFromColumnsList(columns, numColumns);
         }
 
-        public string FillStringColumnValue()
+        private string FillStringColumnValue()
         {
 
             return _currentPosition < _currentLine.Length && _currentLine[_currentPosition] == Quote ? ReadQuotedColumn() : ReadUnquotedColumn();
         }
         
-        public void RemoveUnusedColumnsFromColumnsList(List<string> columns, int numColumns)
+        private void RemoveUnusedColumnsFromColumnsList(List<string> columns, int numColumns)
         {
             if (numColumns < columns.Count)
             {
@@ -142,7 +142,7 @@ namespace CsvFileReaderAndWriter
             }
         }
         
-        public void AddColumnToColumnsList(List<string> columns, int numColumns, string column)
+        private void AddColumnToColumnsList(List<string> columns, int numColumns, string column)
         {
             if (numColumns < columns.Count)
             {
@@ -154,7 +154,7 @@ namespace CsvFileReaderAndWriter
             }
         }
 
-        public void ConsecutiveQuotes(StringBuilder builder)
+        private void ConsecutiveQuotes(StringBuilder builder)
         {
             // while (true)
             // {
@@ -181,7 +181,7 @@ namespace CsvFileReaderAndWriter
             //}
         }
 
-        public bool CheckForTwoQuotesIf()
+        private bool CheckForTwoQuotesIf()
         {
             // If two quotes, skip first and treat second as literal
             var nextPos = _currentPosition + 1;
@@ -189,7 +189,7 @@ namespace CsvFileReaderAndWriter
             return val;
         }
         
-        public void EndOfLineConditionCheckInConsecutiveQuotes(StringBuilder builder)
+        private void EndOfLineConditionCheckInConsecutiveQuotes(StringBuilder builder)
         {
             while (_currentLine != null && _currentPosition == _currentLine.Length)
             {
