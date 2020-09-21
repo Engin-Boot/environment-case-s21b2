@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace AlertSystem
 {
-    public class Program
+    internal class Program
     {
         private static readonly MapRangeToParameterStatus[] TemperatureRangeMap;
         private static readonly MapRangeToParameterStatus[] HumidityRangeMap;
