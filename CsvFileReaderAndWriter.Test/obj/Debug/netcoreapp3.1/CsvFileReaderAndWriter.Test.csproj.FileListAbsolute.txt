@@ -97,3 +97,10 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.pdb
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.genruntimeconfig.cache
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.analyzers.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.execution.desktop.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.reporters.net452.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.tdnet.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.utility.net452.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\xunit.execution.desktop.xml
