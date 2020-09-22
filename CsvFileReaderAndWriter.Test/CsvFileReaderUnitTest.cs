@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using MonitoringSensor;
 using Xunit;
 
 namespace CsvFileReaderAndWriter.Test
@@ -17,7 +18,7 @@ namespace CsvFileReaderAndWriter.Test
             var columns = new List<string>();
             bool result;
             Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(testInput));
-            using (var reader = new CsvFileReader(stream))
+            using (var reader = new CsvReader(stream))
             {
                 result = reader.ReadRow(columns);
             }
@@ -33,7 +34,7 @@ namespace CsvFileReaderAndWriter.Test
             var columns = new List<string>();
             bool result;
             Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(testInput));
-            using (var reader = new CsvFileReader(stream))
+            using (var reader = new CsvReader(stream))
             {
                 result = reader.ReadRow(columns);
             }

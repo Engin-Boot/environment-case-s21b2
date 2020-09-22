@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CsvFileReaderAndWriter\CsvFileReaderAndWriter.csproj" />
     <ProjectReference Include="..\MonitoringSensor\MonitoringSensor.csproj" />
   </ItemGroup>
 

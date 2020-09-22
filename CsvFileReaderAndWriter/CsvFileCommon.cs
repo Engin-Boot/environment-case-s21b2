@@ -1,5 +1,4 @@
 namespace CsvFileReaderAndWriter
-/
 {
     /// <summary>
     /// Common base class for CSV reader and writer classes.

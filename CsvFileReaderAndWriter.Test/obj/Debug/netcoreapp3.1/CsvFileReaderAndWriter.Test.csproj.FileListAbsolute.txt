@@ -87,8 +87,6 @@ C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWr
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.dll
-C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\bin\Debug\netcoreapp3.1\CsvFileReaderAndWriter.pdb
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.csprojAssemblyReference.cache
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.AssemblyInfoInputs.cache
 C:\Users\Tripti Saini\philips\bootcamp\environment-case-s21b2\CsvFileReaderAndWriter.Test\obj\Debug\netcoreapp3.1\CsvFileReaderAndWriter.Test.AssemblyInfo.cs
