@@ -5,4 +5,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CsvFileCommon.cs" />
+    <Compile Remove="CsvFileReader.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="CsvFileCommon.cs" />
+    <None Include="CsvFileReader.cs" />
+  </ItemGroup>
+
 </Project>

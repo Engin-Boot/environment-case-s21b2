@@ -18,7 +18,7 @@ namespace MonitoringSensor
                 return;
             }
 
-            using (var reader = new CsvFileReader(path))
+            using (var reader = new CsvReader(path))
             {
                 while (reader.ReadRow(columns))
                 {
