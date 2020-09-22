@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MonitoringSensor
 {
@@ -6,7 +6,10 @@ namespace MonitoringSensor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //creating object of class Program
+            var readDataToConsole = new SenderReadFromCsv();
+            readDataToConsole.ReadValues(); // Calling method
+            Console.ReadLine();
         }
     }
 }
