@@ -20,8 +20,8 @@ jobs:
         run: dotnet test --collect:"XPlat Code Coverage"
 
       - name: Check Receiver Module Coverage
-        run: powershell ./coverage.ps1 -linerate 0.9 -projectName AlertSystem.Test      
+        run: powershell ./coverage.ps1 -linerate 1 -projectName AlertSystem.Test      
         
       - name: Check Sender Module Coverage
-        run: powershell ./coverage.ps1 -linerate 0.9 -projectName CsvFileReaderAndWriter.Test
+        run: powershell ./coverage.ps1 -linerate 0.5 -projectName CsvFileReaderAndWriter.Test
 
