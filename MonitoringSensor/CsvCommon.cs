@@ -13,17 +13,13 @@
 
         // Indexes into SpecialChars for characters with specific meaning
         private const int DelimiterIndex = 0;
-        private const int QuoteIndex = 1;
+        //private const int QuoteIndex = 1;
 
         /// <summary>
         /// Gets/sets the character used for column delimiters.
         /// </summary>
         protected char Delimiter => _specialChars[DelimiterIndex];
-
-        /// <summary>
-        /// Gets/sets the character used for column quotes.
-        /// </summary>
-        protected char Quote => _specialChars[QuoteIndex];
+        //protected char Quote => _specialChars[QuoteIndex];
     }
 }
 

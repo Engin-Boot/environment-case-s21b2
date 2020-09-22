@@ -4,7 +4,7 @@ namespace MonitoringSensor
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             //creating object of class Program
             var readDataToConsole = new SenderReadFromCsv();
