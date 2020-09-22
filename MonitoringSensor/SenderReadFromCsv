@@ -10,7 +10,7 @@ namespace MonitoringSensor
         public void ReadValues()
         {
             var columns = new List<string>();
-            const string path = "SenderSampleData.csv";
+            const string path = "MonitoringSensor/SenderSampleData.csv";
 
             if (!File.Exists(path))
             {
