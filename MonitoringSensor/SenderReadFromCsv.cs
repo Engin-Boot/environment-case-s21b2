@@ -31,7 +31,7 @@ namespace MonitoringSensor
             IsFileEmpty(columns);
         }
 
-        public void ReadDataToConsole(List<string> columns)
+        private void ReadDataToConsole(List<string> columns)
         {
 
             foreach (var s in columns)
@@ -43,7 +43,7 @@ namespace MonitoringSensor
             }
         }
 
-        public void IsFileEmpty(List<string> columns)
+        private void IsFileEmpty(List<string> columns)
         {
             if (columns.Count == 0)
             {
