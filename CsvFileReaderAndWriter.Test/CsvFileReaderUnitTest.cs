@@ -26,7 +26,7 @@ namespace CsvFileReaderAndWriter.Test
         }
 
         [Fact]
-        public void WhenValidColumnsListWithoutQuotesThenReadRowToCsv()
+        public void WhenValidFileInputThenReadRowToCsv()
         {
 
             const string testInput = "123,456,789,0";
@@ -45,24 +45,6 @@ namespace CsvFileReaderAndWriter.Test
             Debug.Assert(columns[3] == "0");
         }
 
-        [Fact]
-        public void WhenValidColumnsListWithQuotesThenReadRowToCsv()
-        {
-
-            const string testInput = "123, \"456,789\",0";
-            var columns = new List<string>();
-            bool result;
-            Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(testInput));
-            using (var reader = new CsvFileReader(stream))
-            {
-                result = reader.ReadRow(columns);
-            }
-            Assert.True(result);
-            Debug.Assert(columns.Count == 4);
-            Debug.Assert(columns[0] == "123");
-            Debug.Assert(columns[1] == " \"456");
-            Debug.Assert(columns[2] == "789\"");
-            Debug.Assert(columns[3] == "0");
-        }
+        
     }
 }
