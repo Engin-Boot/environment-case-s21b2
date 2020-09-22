@@ -36,7 +36,7 @@ namespace AlertSystem
                 }
                 catch (SystemException ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine("Exception thrown while reading data:" + data + ", message:" + ex);
                 }
             }
 
